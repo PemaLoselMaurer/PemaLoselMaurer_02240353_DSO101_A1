@@ -1,7 +1,7 @@
 # DSO101 Assignment 1 - CI/CD Todo App
 
-**Name:** Your Name  
-**Student ID:** Your ID
+**Name:** Pema Losel Maurer  
+**Student ID:** 02240353
 
 ---
 
