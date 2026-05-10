@@ -22,10 +22,10 @@ pipeline {
         stage('Install') {
             steps {
                 dir('Backend') {
-                    sh 'npm install'
+                    bat 'npm install'
                 }
                 dir('Frontend') {
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Frontend') {
-                    sh 'npm run build'
+                    bat 'npm run build'
                 }
             }
         }
@@ -43,10 +43,10 @@ pipeline {
         stage('Test') {
             steps {
                 dir('Backend') {
-                    sh 'npm test || echo "No test script defined – skipping"'
+                    bat 'npm test || echo "No test script defined – skipping"'
                 }
                 dir('Frontend') {
-                    sh 'npm test || echo "No test script defined – skipping"'
+                    bat 'npm test || echo "No test script defined – skipping"'
                 }
             }
             post {
