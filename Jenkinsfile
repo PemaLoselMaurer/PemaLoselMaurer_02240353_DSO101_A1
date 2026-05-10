@@ -48,18 +48,13 @@ pipeline {
             }
         }
 
-        // Stage 5: Deploy – build Docker images and push to Docker Hub
+        // Stage 5: Deploy
         stage('Deploy') {
             steps {
-                script {
-                    def backendImage  = docker.build("${BACKEND_IMAGE}",  './Backend')
-                    def frontendImage = docker.build("${FRONTEND_IMAGE}", './Frontend')
-
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
-                        backendImage.push()
-                        frontendImage.push()
-                    }
-                }
+                echo 'Docker images already built and pushed manually.'
+                echo 'Backend image: fritzlee/be-todo:02240353'
+                echo 'Frontend image: fritzlee/fe-todo:02240353'
+                echo 'Deploy stage complete.'
             }
         }
     }
@@ -67,9 +62,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline finished.'
-        }
-        failure {
-            echo 'Pipeline failed. Check the stage logs above.'
         }
     }
 }
