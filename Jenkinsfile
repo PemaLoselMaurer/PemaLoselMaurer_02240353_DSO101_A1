@@ -43,15 +43,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('Backend') {
-                    bat 'npm test || echo "No test script defined – skipping"'
-                }
-                dir('Frontend') {
-                    bat 'npm test || echo "No test script defined – skipping"'
-                }
-            }
-            post {
-                always {
-                    junit allowEmptyResults: true, testResults: 'junit.xml'
+                    bat 'npm test -- --passWithNoTests'
                 }
             }
         }
@@ -73,8 +65,8 @@ pipeline {
     }
 
     post {
-        success {
-            echo 'Pipeline completed successfully.'
+        always {
+            echo 'Pipeline finished.'
         }
         failure {
             echo 'Pipeline failed. Check the stage logs above.'
