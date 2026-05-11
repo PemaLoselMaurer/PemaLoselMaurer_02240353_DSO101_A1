@@ -46,6 +46,11 @@ pipeline {
                     bat 'npm test -- --passWithNoTests'
                 }
             }
+            post {
+                always {
+                    junit 'Backend/test-results/*.xml'
+                }
+            }
         }
 
         // Stage 5: Deploy

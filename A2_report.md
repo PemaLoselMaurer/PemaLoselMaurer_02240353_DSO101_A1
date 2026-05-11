@@ -48,6 +48,11 @@ A `Jenkinsfile` was created in the root of the repository with the following sta
 A new Pipeline item was created in Jenkins. It was configured to use "Pipeline script from SCM", pointing to the GitHub repository with the PAT credentials. The script path was set to `Jenkinsfile`.
 
 ![alt text](public/a2.3.png)
+
+The Test stage ran successfully — all 3 Jest tests passed and JUnit results were published.
+
+![alt text](public/a2.4.png)
+
 ---
 
 ## How the Pipeline Was Configured
